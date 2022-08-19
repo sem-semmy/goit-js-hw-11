@@ -1,4 +1,4 @@
-// import './sass/main.scss';
+import './sass/main.scss';
 
 import scroll from './js/scroll';
 import topArrow from './js/lift-up';
