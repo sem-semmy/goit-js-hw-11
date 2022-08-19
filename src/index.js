@@ -9,7 +9,7 @@ import { Notify } from 'notiflix/build/notiflix-notify-aio';
 import SimpleLightbox from 'simplelightbox';
 import 'simplelightbox/dist/simple-lightbox.min.css';
 
-//стучусь к єлементам разметки//
+
 const refs = {
   searchForm: document.querySelector('#search-form'),
   gallery: document.querySelector('.gallery'),
@@ -18,12 +18,9 @@ const refs = {
   endcollectionText: document.querySelector('.end-collection-quote'),
 };
 
-//вызов лифта вверх//
+
 topArrow();
 
-//refs.searchForm.addEventListener('submit', onFormSubmit);
-
-//сделали функции чтобы при вводе пустой строки - скрывало(кнопку) то, что было до нового поиска//
 refs.searchForm.addEventListener('submit', e => {
   refs.gallery.innerHTML = '';
   onFormSubmit(e);
@@ -40,7 +37,7 @@ async function onFormSubmit(e) {
   searchingData = e.currentTarget.searchQuery.value;
   page = 1;
   if (searchingData.trim() === '') {
-    Notify.failure('Неа, воздух я искать не буду 😺');
+    Notify.failure('ВВеди щось більш коректніше');
     return;
   }
   const response = await fetchPixabay(searchingData, page);
@@ -55,23 +52,21 @@ async function onFormSubmit(e) {
   if (response.totalHits === 0) {
     clearGalleryHTML();
     refs.endcollectionText.classList.add('is-hidden');
-    Notify.failure('Интересный запрос, правда, но такое ищи сам 💩');
+    Notify.failure('Вибач, але я не хочу це шукати');
   }
   try {
     if (response.totalHits > 0) {
       Notify.info(
-        `Ты счастливчик! Отгружаю ${response.totalHits} единиц контента ✨`
+        `Чудово, можу тобі запропонувати ${response.totalHits} зображень ✨`
       );
       clearGalleryHTML();
       renderCard(response.hits);
-      //refs.searchForm.reset();
     }
   } catch (error) {
     console.log(error);
   }
 }
 
-//кнопка для последующей загрузки контента//
 refs.loadMoreBtn.addEventListener('click', loadMore);
 
 async function loadMore() {
@@ -85,7 +80,7 @@ async function loadMore() {
     scroll();
 
     if (perPage >= response.totalHits) {
-      Notify.failure('Мы зашли в тупик. Картиночки закончились 🚩');
+      Notify.failure('Зображення закінчились');
       addISHidden();
     }
     refs.loadMoreBtn.disabled = false;
@@ -93,7 +88,6 @@ async function loadMore() {
     console.log(error);
   }
 }
-//АПИшка//
 function addISHidden() {
   refs.loadMoreBtn.classList.add('is-hidden');
   refs.endcollectionText.classList.remove('is-hidden');
