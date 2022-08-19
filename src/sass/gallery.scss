@@ -1,38 +1,37 @@
 .allPage {
-    background-color: black
-  }
-  
-  .gallery__item {
+    background-color: black;
+}
+
+.gallery__item {
     border-top-right-radius: 10px;
     border-top-left-radius: 10px;
-  }
-  
-  .gallery {
+}
+
+.gallery {
     display: flex;
     flex-wrap: wrap;
     align-items: center;
     margin-left: -30px;
     margin-top: -30px;
-  
-  }
-  
-  .photo-card {
+}
+
+.photo-card {
     display: flex;
     flex-direction: column;
     width: 360px;
     flex-basis: calc((100% - 120px) / 4);
     margin-left: 30px;
     margin-top: 30px;
-  }
-  
-  .wrapper-box {
+}
+
+.wrapper-box {
     width: 1600px;
     margin-right: auto;
     margin-left: auto;
     padding: 20px;
-  }
-  
-  .info {
+}
+
+.info {
     display: flex;
     text-align: center;
     font-size: 13px;
@@ -43,24 +42,24 @@
     border-bottom-left-radius: 10px;
     border-bottom-right-radius: 10px;
     font-size: 14px;
-  }
-  
-  .info:hover {
+}
+
+.info:hover {
     color: skyblue;
     transition-duration: 250ms;
     transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
-  }
-  
-  .info:hover {
+}
+
+.info:hover {
     box-shadow: 0px 6px 6px 0px white;
-  }
-  
-  .text {
+}
+
+.text {
     font-weight: normal;
     font-size: 11px;
-  }
-  
-  .submitBtn {
+}
+
+.submitBtn {
     cursor: pointer;
     display: block;
     background-color: #0f5757;
@@ -76,11 +75,11 @@
     text-decoration: none;
     display: inline-block;
     font-size: 18px;
-  }
-  
-  .submitBtn:hover {
+}
+
+.submitBtn:hover {
     background-color: white;
     color: black;
     transition-duration: 250ms;
     transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
-  }
+}
